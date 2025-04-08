@@ -1,0 +1,106 @@
+import { Mail, MapPin, Phone } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+
+export default function ContactPage() {
+  return (
+    <div className="container px-4 py-12 md:px-6 md:py-16 lg:py-20">
+      <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="space-y-2">
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contact Us</h1>
+          <p className="max-w-[700px] text-gray-500 dark:text-gray-400 md:text-xl">
+            Have questions or want to learn more about our services? Get in touch with our team.
+          </p>
+        </div>
+      </div>
+      <div className="mx-auto mt-12 grid max-w-6xl gap-8 lg:grid-cols-2">
+        <div className="flex flex-col gap-6">
+          <div className="flex items-start gap-4">
+            <MapPin className="h-6 w-6 text-teal-600 dark:text-teal-400" />
+            <div>
+              <h3 className="text-lg font-semibold">Address</h3>
+              <p className="text-gray-500 dark:text-gray-400">123 Renewable Street, Energy City, 12345</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4">
+            <Phone className="h-6 w-6 text-teal-600 dark:text-teal-400" />
+            <div>
+              <h3 className="text-lg font-semibold">Contact No</h3>
+              <p className="text-gray-500 dark:text-gray-400">+1 (123) 456-7890</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4">
+            <Mail className="h-6 w-6 text-teal-600 dark:text-teal-400" />
+            <div>
+              <h3 className="text-lg font-semibold">Email</h3>
+              <p className="text-gray-500 dark:text-gray-400">info@bajrangrenewable.com</p>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-lg border bg-card p-6 shadow-sm">
+          <form className="flex flex-col gap-4">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="name" className="text-sm font-medium">
+                  Name
+                </label>
+                <Input id="name" placeholder="Enter your name" />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="email" className="text-sm font-medium">
+                  Email
+                </label>
+                <Input id="email" type="email" placeholder="Enter your email" />
+              </div>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="phone" className="text-sm font-medium">
+                  Phone No
+                </label>
+                <Input id="phone" placeholder="Enter your phone number" />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="company" className="text-sm font-medium">
+                  Company
+                </label>
+                <Input id="company" placeholder="Enter your company name" />
+              </div>
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="topic" className="text-sm font-medium">
+                Topic
+              </label>
+              <Select>
+                <SelectTrigger id="topic">
+                  <SelectValue placeholder="Select a topic" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="general">General Inquiry</SelectItem>
+                  <SelectItem value="services">Services</SelectItem>
+                  <SelectItem value="support">Technical Support</SelectItem>
+                  <SelectItem value="partnership">Partnership</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="message" className="text-sm font-medium">
+                Message
+              </label>
+              <Textarea id="message" placeholder="Enter your message" className="min-h-[150px]" />
+            </div>
+            <Button
+              type="submit"
+              className="mt-2 bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-700"
+            >
+              Send Message
+            </Button>
+          </form>
+        </div>
+      </div>
+    </div>
+  )
+}
