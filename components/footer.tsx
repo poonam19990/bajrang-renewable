@@ -63,22 +63,27 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin className="h-5 w-5 text-teal-600 dark:text-teal-400" />
-                <span className="text-gray-500 dark:text-gray-400">123 Renewable Street, Energy City, 12345</span>
+                <span className="text-gray-500 dark:text-gray-400">A24, Shiv Shakti Society,
+                    B/H Garnet Apartment,
+                    Near Sabri School,
+                    Vasna road, Vadodara -390007</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-5 w-5 text-teal-600 dark:text-teal-400" />
-                <span className="text-gray-500 dark:text-gray-400">+1 (123) 456-7890</span>
+                <span className="text-gray-500 dark:text-gray-400">+91-7567648632</span>
+                <span className="text-gray-500 dark:text-gray-400">+91-9773092131</span>
+                
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-5 w-5 text-teal-600 dark:text-teal-400" />
-                <span className="text-gray-500 dark:text-gray-400">info@bajrangrenewable.com</span>
+                <span className="text-gray-500 dark:text-gray-400">bajrangrenewable@gmail.com</span>
               </li>
             </ul>
           </div>
           <div>
             <h3 className="mb-4 text-lg font-medium">Follow Us</h3>
             <div className="flex gap-4">
-              <Link
+              {/* <Link
                 href="#"
                 className="rounded-full bg-gray-100 p-2 text-gray-500 transition-colors hover:bg-teal-100 hover:text-teal-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-teal-900 dark:hover:text-teal-400"
               >
@@ -91,7 +96,7 @@ export default function Footer() {
               >
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
-              </Link>
+              </Link> */}
               <Link
                 href="#"
                 className="rounded-full bg-gray-100 p-2 text-gray-500 transition-colors hover:bg-teal-100 hover:text-teal-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-teal-900 dark:hover:text-teal-400"
