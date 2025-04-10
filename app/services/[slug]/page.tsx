@@ -1,61 +1,46 @@
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowLeft, Check } from "lucide-react"
-import { Button } from "@/components/ui/button"
+"use client";
 
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowLeft,ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import Img1 from "@/public/substations/substation1.jpg";
+import Img2 from "@/public/substations/substation2.jpg";
+import Img3 from "@/public/substations/substation3.jpg";
+import Img4 from "@/public/substations/substation4.jpg";
+import tra_line1 from "@/public/TransmissionLine/transmission-line2.jpeg";
+import tra_line2 from "@/public/TransmissionLine/transmission-line3.jpeg";
+// import epc1 from "@/public/epc-service/"
 // This would typically come from a database or CMS
 const getService = (slug: string) => {
   const services = {
     substations: {
       title: "Substations",
-      image: "/placeholder.svg?height=600&width=1200",
+      // image: "/placeholder.svg?height=600&width=1200",
       description:
         "We design, build, and maintain electrical substations that efficiently distribute power from renewable energy sources to the grid.",
       content: `
-        <p>Electrical substations are a critical component of the power distribution network, especially for renewable energy projects. At Bajrang Renewable, we specialize in the design, construction, and maintenance of substations that efficiently connect renewable energy sources to the grid.</p>
-        
-        <h2>Our Substation Services</h2>
-        <p>Our comprehensive substation services include:</p>
-        <ul>
-          <li>Substation design and engineering</li>
-          <li>Equipment procurement and installation</li>
-          <li>Testing and commissioning</li>
-          <li>Maintenance and upgrades</li>
-          <li>Compliance with regulatory requirements</li>
-        </ul>
-        
-        <h2>Types of Substations</h2>
-        <p>We work with various types of substations, including:</p>
-        <ul>
-          <li>Step-up substations for renewable energy generation</li>
-          <li>Step-down substations for power distribution</li>
-          <li>Switching substations for network configuration</li>
-          <li>Mobile substations for temporary power needs</li>
-        </ul>
-        
-        <h2>Advanced Technology</h2>
-        <p>We utilize the latest technologies in our substation projects, including:</p>
-        <ul>
-          <li>Digital control and monitoring systems</li>
-          <li>Smart grid integration</li>
-          <li>Remote monitoring and diagnostics</li>
-          <li>Energy management systems</li>
-        </ul>
-        
-        <h2>Quality and Safety</h2>
-        <p>Quality and safety are our top priorities in all substation projects. We adhere to the highest industry standards and implement rigorous quality control measures to ensure the reliability and safety of our substations.</p>
-        
-        <h2>Why Choose Us</h2>
-        <p>With our extensive experience and expertise in substation design and construction, we deliver high-quality, reliable, and efficient substations that meet the specific needs of our clients. Our team of skilled engineers and technicians ensures that each project is completed to the highest standards, on time, and within budget.</p>
+        <h2>Our Expertise in AIS & GIS Substations:</h2>
       `,
       features: [
-        "Custom substation design and engineering",
-        "High-quality equipment procurement",
-        "Expert installation and commissioning",
-        "Comprehensive testing and quality assurance",
-        "Ongoing maintenance and support",
-        "Compliance with all regulatory requirements",
+        "Air-Insulated Substation (AIS) – Cost-effective and flexible conventional substation solutions.",
+        "Gas-Insulated Substation (GIS) – Compact, maintenance-friendly solutions for space-constrained areas.",
+        "Steel Structure & Equipment Erection – Transformer, CT/PT, Circuit Breakers, Isolators, and Busbar installation.",
+        "HT Cable Laying & Termination – Power & control cable laying, jointing, and termination with proper testing.",
+        "Protection & Relay Testing – Verification of relay coordination, breaker timing, CT/PT ratio testing, and SCADA integration.",
+        "Pre-Commissioning & Final Testing – Insulation resistance, contact resistance, SF6 gas leakage checks, and system energization.",
       ],
+      whyChooseUs: [
+        "Turnkey AIS & GIS Substation Execution – From foundation work to energization.",
+        "Adherence to International Safety & Quality Standards (IS/IEC/GETCO/CEA).",
+        "Advanced Testing Equipment & Expert Engineers for flawless commissioning.",
+        "On-Time Project Delivery ensuring operational efficiency and reliability.",
+      ],
+      conclusion:
+        "With a proven track record in EHV AIS & GIS substation projects, we empower industries, wind farms, utilities, and transmission networks with high-performance power solutions.",
+      gallery: [Img1, Img2, Img3, Img4],
     },
     "cable-laying": {
       title: "Cable Laying",
@@ -63,52 +48,28 @@ const getService = (slug: string) => {
       description:
         "Our expert team provides comprehensive cable laying services for renewable energy projects, ensuring reliable power transmission.",
       content: `
-        <p>Cable laying is a critical aspect of renewable energy infrastructure, ensuring the efficient transmission of power from generation sources to the grid. At Bajrang Renewable, we provide comprehensive cable laying services for various renewable energy projects.</p>
-        
-        <h2>Our Cable Laying Services</h2>
-        <p>Our cable laying services include:</p>
-        <ul>
-          <li>Underground cable installation</li>
-          <li>Overhead line construction</li>
-          <li>Submarine cable laying</li>
-          <li>Cable jointing and termination</li>
-          <li>Cable testing and commissioning</li>
-          <li>Cable maintenance and repair</li>
-        </ul>
-        
-        <h2>Types of Cables</h2>
-        <p>We work with various types of cables, including:</p>
-        <ul>
-          <li>High-voltage power cables</li>
-          <li>Medium-voltage distribution cables</li>
-          <li>Low-voltage service cables</li>
-          <li>Fiber optic communication cables</li>
-          <li>Control and instrumentation cables</li>
-        </ul>
-        
-        <h2>Advanced Techniques</h2>
-        <p>We utilize advanced techniques and equipment for cable laying, including:</p>
-        <ul>
-          <li>Horizontal directional drilling</li>
-          <li>Trenchless technology</li>
-          <li>Cable plowing</li>
-          <li>Open trench installation</li>
-          <li>Aerial installation</li>
-        </ul>
-        
-        <h2>Quality and Reliability</h2>
-        <p>We prioritize quality and reliability in all our cable laying projects. Our cables are sourced from reputable manufacturers and undergo rigorous testing to ensure they meet the highest standards of performance and durability.</p>
-        
-        <h2>Why Choose Us</h2>
-        <p>With our extensive experience and expertise in cable laying, we deliver high-quality, reliable, and efficient cable installations that meet the specific needs of our clients. Our team of skilled technicians ensures that each project is completed to the highest standards, on time, and within budget.</p>
+        <h2>Our Expertise in Cable Laying:</h2>
       `,
       features: [
-        "Comprehensive cable laying solutions",
-        "Expert installation and termination",
-        "Advanced installation techniques",
-        "High-quality cable materials",
-        "Thorough testing and quality assurance",
-        "Ongoing maintenance and support",
+        "Underground Cable Installation – Secure and environmentally friendly power transmission solutions.",
+        "Overhead Line Construction – Cost-effective solutions for long-distance power transmission.",
+        "Submarine Cable Laying – Specialized installation for offshore renewable energy projects.",
+        "Cable Jointing & Termination – Expert techniques ensuring reliable connections and minimal power loss.",
+        "Cable Testing & Commissioning – Comprehensive testing to ensure optimal performance and safety.",
+        "Maintenance & Repair Services – Prompt and efficient services to minimize downtime.",
+      ],
+      whyChooseUs: [
+        "Comprehensive Cable Laying Solutions for all types of renewable energy projects.",
+        "Adherence to International Safety & Quality Standards ensuring reliability.",
+        "Advanced Equipment & Expert Technicians for precise installation.",
+        "On-Time Project Delivery with minimal disruption to existing infrastructure.",
+      ],
+      conclusion:
+        "With our extensive experience in cable laying for renewable energy projects, we ensure efficient and reliable power transmission from generation sources to the grid.",
+      gallery: [
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
       ],
     },
     "operation-maintenance": {
@@ -117,107 +78,56 @@ const getService = (slug: string) => {
       description:
         "We offer complete operation and maintenance services to ensure your renewable energy systems run at optimal efficiency.",
       content: `
-        <p>Proper operation and maintenance are essential for maximizing the performance and lifespan of renewable energy systems. At Bajrang Renewable, we offer comprehensive operation and maintenance services to ensure your renewable energy assets operate at peak efficiency.</p>
-        
-        <h2>Our O&M Services</h2>
-        <p>Our operation and maintenance services include:</p>
-        <ul>
-          <li>Preventive maintenance</li>
-          <li>Corrective maintenance</li>
-          <li>Performance monitoring</li>
-          <li>System optimization</li>
-          <li>Emergency response</li>
-          <li>Spare parts management</li>
-        </ul>
-        
-        <h2>Types of Systems</h2>
-        <p>We provide O&M services for various renewable energy systems, including:</p>
-        <ul>
-          <li>Solar PV plants</li>
-          <li>Wind farms</li>
-          <li>Hydroelectric plants</li>
-          <li>Biomass facilities</li>
-          <li>Energy storage systems</li>
-          <li>Hybrid renewable energy systems</li>
-        </ul>
-        
-        <h2>Advanced Monitoring</h2>
-        <p>We utilize advanced monitoring and diagnostic tools to track the performance of your renewable energy systems, including:</p>
-        <ul>
-          <li>Remote monitoring systems</li>
-          <li>Data analytics</li>
-          <li>Predictive maintenance</li>
-          <li>Thermal imaging</li>
-          <li>Drone inspections</li>
-        </ul>
-        
-        <h2>Performance Optimization</h2>
-        <p>We continuously work to optimize the performance of your renewable energy systems, identifying opportunities for improvement and implementing solutions to increase energy production and efficiency.</p>
-        
-        <h2>Why Choose Us</h2>
-        <p>With our extensive experience and expertise in renewable energy O&M, we deliver high-quality, reliable, and efficient services that maximize the performance and lifespan of your renewable energy assets. Our team of skilled technicians ensures that your systems operate at peak efficiency, minimizing downtime and maximizing return on investment.</p>
+        <h2>Our Expertise in Operation & Maintenance:</h2>
       `,
       features: [
-        "Comprehensive preventive maintenance",
-        "24/7 monitoring and support",
-        "Rapid response to issues",
-        "Performance optimization",
-        "Detailed reporting and analytics",
-        "Spare parts management",
+        "Preventive Maintenance – Regular inspections and servicing to prevent equipment failures.",
+        "Corrective Maintenance – Prompt and efficient repairs to minimize downtime.",
+        "Performance Monitoring – Continuous monitoring to ensure optimal system performance.",
+        "System Optimization – Adjustments and upgrades to improve efficiency and output.",
+        "Emergency Response – 24/7 support for critical issues.",
+        "Spare Parts Management – Inventory management to ensure quick repairs.",
+      ],
+      whyChooseUs: [
+        "Comprehensive O&M Services for all types of renewable energy systems.",
+        "Experienced Technicians with specialized knowledge in renewable energy.",
+        "Advanced Monitoring Tools for real-time performance tracking.",
+        "Customized Maintenance Plans tailored to your specific needs.",
+      ],
+      conclusion:
+        "Our operation and maintenance services ensure the longevity and optimal performance of your renewable energy assets, maximizing your return on investment.",
+      gallery: [
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
       ],
     },
     "transmission-line": {
       title: "Transmission Line",
-      image: "/placeholder.svg?height=600&width=1200",
+      // image: "/placeholder.svg?height=600&width=1200",
       description:
         "Our transmission line services include design, installation, and maintenance of high-voltage power lines for renewable energy projects.",
       content: `
-        <p>Transmission lines are the backbone of the power grid, carrying electricity from generation sources to distribution networks. At Bajrang Renewable, we provide comprehensive transmission line services for renewable energy projects, ensuring efficient and reliable power transmission.</p>
-        
-        <h2>Our Transmission Line Services</h2>
-        <p>Our transmission line services include:</p>
-        <ul>
-          <li>Transmission line design and engineering</li>
-          <li>Tower and pole installation</li>
-          <li>Conductor stringing</li>
-          <li>Insulator and hardware installation</li>
-          <li>Testing and commissioning</li>
-          <li>Maintenance and upgrades</li>
-        </ul>
-        
-        <h2>Types of Transmission Lines</h2>
-        <p>We work with various types of transmission lines, including:</p>
-        <ul>
-          <li>High-voltage overhead lines</li>
-          <li>Underground transmission cables</li>
-          <li>HVDC (High-Voltage Direct Current) lines</li>
-          <li>Submarine transmission cables</li>
-        </ul>
-        
-        <h2>Advanced Technology</h2>
-        <p>We utilize advanced technologies in our transmission line projects, including:</p>
-        <ul>
-          <li>Computer-aided design and modeling</li>
-          <li>GIS (Geographic Information System) mapping</li>
-          <li>LiDAR (Light Detection and Ranging) surveys</li>
-          <li>Drone inspections</li>
-          <li>Smart grid integration</li>
-        </ul>
-        
-        <h2>Quality and Reliability</h2>
-        <p>Quality and reliability are our top priorities in all transmission line projects. We adhere to the highest industry standards and implement rigorous quality control measures to ensure the reliability and safety of our transmission lines.</p>
-        
-        <h2>Why Choose Us</h2>
-        <p>With our extensive experience and expertise in transmission line design and construction, we deliver high-quality, reliable, and efficient transmission lines that meet the specific needs of our clients. Our team of skilled engineers and technicians ensures that each project is completed to the highest standards, on time, and within budget.</p>
+        <h2>Our Expertise in Transmission Lines:</h2>
       `,
       features: [
-        "Comprehensive transmission line solutions",
-        "Expert design and engineering",
-        "High-quality materials and components",
-        "Advanced construction techniques",
-        "Thorough testing and quality assurance",
-        "Ongoing maintenance and support",
+        "Transmission Line Design – Custom designs optimized for efficiency and reliability.",
+        "Tower & Pole Installation – Secure and stable structures for overhead lines.",
+        "Conductor Stringing – Precise installation ensuring optimal performance.",
+        "Insulator & Hardware Installation – High-quality components for reliable operation.",
+        "Testing & Commissioning – Comprehensive testing to ensure safety and performance.",
+        "Maintenance & Upgrades – Regular servicing to maintain optimal operation.",
       ],
+      whyChooseUs: [
+        "End-to-End Transmission Line Solutions from design to maintenance.",
+        "Adherence to International Standards ensuring safety and reliability.",
+        "Advanced Equipment & Techniques for efficient installation.",
+        "Experienced Engineers with specialized knowledge in transmission systems.",
+      ],
+      conclusion:
+        "Our transmission line services ensure efficient and reliable power transmission from renewable energy sources to the grid, supporting the growth of clean energy.",
+      gallery: [tra_line1, tra_line2],
     },
     "epc-service": {
       title: "EPC Service",
@@ -225,46 +135,30 @@ const getService = (slug: string) => {
       description:
         "As a full-service EPC contractor, we handle engineering, procurement, and construction for renewable energy projects of all sizes.",
       content: `
-        <p>As a full-service EPC (Engineering, Procurement, and Construction) contractor, Bajrang Renewable provides end-to-end solutions for renewable energy projects of all sizes. We handle every aspect of your project, from initial design to final commissioning, ensuring a seamless and efficient process.</p>
-        
-        <h2>Our EPC Services</h2>
-        <p>Our comprehensive EPC services include:</p>
-        <ul>
-          <li>Project development and planning</li>
-          <li>Detailed engineering and design</li>
-          <li>Equipment and material procurement</li>
-          <li>Construction and installation</li>
-          <li>Testing and commissioning</li>
-          <li>Project management</li>
-        </ul>
-        
-        <h2>Types of Projects</h2>
-        <p>We provide EPC services for various renewable energy projects, including:</p>
-        <ul>
-          <li>Solar PV plants</li>
-          <li>Wind farms</li>
-          <li>Hydroelectric plants</li>
-          <li>Biomass facilities</li>
-          <li>Energy storage systems</li>
-          <li>Hybrid renewable energy systems</li>
-        </ul>
-        
-        <h2>Project Management</h2>
-        <p>Our experienced project managers oversee every aspect of your project, ensuring it is completed on time, within budget, and to the highest quality standards. We utilize advanced project management tools and methodologies to track progress, manage resources, and mitigate risks.</p>
-        
-        <h2>Quality Assurance</h2>
-        <p>Quality is at the core of our EPC services. We implement rigorous quality control measures at every stage of the project, from design to commissioning, to ensure that all components and systems meet the highest standards of performance and reliability.</p>
-        
-        <h2>Why Choose Us</h2>
-        <p>With our extensive experience and expertise in renewable energy EPC, we deliver high-quality, reliable, and efficient projects that meet the specific needs of our clients. Our integrated approach ensures seamless coordination between all project phases, minimizing delays and maximizing value.</p>
+        <h2>Our Expertise in EPC Services:</h2>
       `,
       features: [
-        "End-to-end project management",
-        "Detailed engineering and design",
-        "Strategic procurement",
-        "Expert construction and installation",
-        "Comprehensive testing and commissioning",
-        "Ongoing support and maintenance",
+        "Project Development & Planning – Comprehensive planning for successful project execution.",
+        "Detailed Engineering & Design – Custom designs optimized for efficiency and performance.",
+        "Equipment & Material Procurement – Strategic sourcing of high-quality components.",
+        "Construction & Installation – Expert construction adhering to international standards.",
+        "Testing & Commissioning – Thorough testing to ensure optimal performance.",
+        "Project Management – Efficient coordination of all project phases.",
+      ],
+      whyChooseUs: [
+        "Integrated EPC Solutions for all types of renewable energy projects.",
+        "Experienced Project Managers ensuring on-time and within-budget delivery.",
+        "Quality Assurance at every stage of the project.",
+        "Customized Approach tailored to your specific requirements.",
+      ],
+      conclusion:
+        "Our EPC services provide a seamless and efficient approach to renewable energy projects, from initial concept to final commissioning.",
+      gallery: [
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
       ],
     },
     others: {
@@ -272,55 +166,195 @@ const getService = (slug: string) => {
       image: "/placeholder.svg?height=600&width=1200",
       description:
         "We provide a range of additional services tailored to meet the specific needs of your renewable energy projects.",
+      isMultiService: true,
+      otherServices: [
+        {
+          id: "feasibility-studies",
+          title: "Feasibility Studies",
+          description:
+            "Our comprehensive feasibility studies evaluate the technical, economic, and environmental viability of renewable energy projects. We analyze site conditions, resource availability, grid connection options, and financial projections to determine project feasibility and optimize design parameters.",
+          image: "/placeholder.svg?height=400&width=600",
+          link: "/services/feasibility-studies",
+        },
+        {
+          id: "grid-integration",
+          title: "Grid Integration",
+          description:
+            "We provide expert grid integration services to ensure seamless connection of renewable energy systems to the power grid. Our team conducts detailed grid studies, designs appropriate interconnection solutions, and implements advanced control systems to meet grid code requirements and optimize power quality.",
+          image: "/placeholder.svg?height=400&width=600",
+          link: "/services/grid-integration",
+        },
+        {
+          id: "energy-storage",
+          title: "Energy Storage Solutions",
+          description:
+            "Our energy storage solutions enhance the reliability and efficiency of renewable energy systems. We design and implement battery storage systems, pumped hydro storage, and other technologies to store excess energy, provide backup power, and stabilize grid operations.",
+          image: "/placeholder.svg?height=400&width=600",
+          link: "/services/energy-storage",
+        },
+        {
+          id: "training-programs",
+          title: "Training Programs",
+          description:
+            "We offer specialized training programs for operators, technicians, and engineers working with renewable energy systems. Our hands-on training covers system operation, maintenance procedures, troubleshooting techniques, and safety protocols to ensure optimal system performance and longevity.",
+          image: "/placeholder.svg?height=400&width=600",
+          link: "/services/training-programs",
+        },
+      ],
       content: `
-        <p>In addition to our core services, Bajrang Renewable offers a range of specialized services to meet the diverse needs of our clients in the renewable energy sector. These services are tailored to address specific challenges and opportunities in renewable energy projects.</p>
-        
-        <h2>Additional Services</h2>
-        <p>Our additional services include:</p>
-        <ul>
-          <li>Feasibility studies and site assessments</li>
-          <li>Environmental impact assessments</li>
-          <li>Grid connection studies</li>
-          <li>Energy yield assessments</li>
-          <li>Due diligence for renewable energy projects</li>
-          <li>Training and capacity building</li>
-        </ul>
-        
-        <h2>Consulting Services</h2>
-        <p>We provide expert consulting services in various areas, including:</p>
-        <ul>
-          <li>Renewable energy policy and regulations</li>
-          <li>Technology selection and assessment</li>
-          <li>Financial modeling and analysis</li>
-          <li>Risk assessment and mitigation</li>
-          <li>Project development strategies</li>
-        </ul>
-        
-        <h2>Research and Development</h2>
-        <p>We invest in research and development to stay at the forefront of renewable energy technology and innovation. Our R&D activities focus on improving the efficiency, reliability, and cost-effectiveness of renewable energy systems.</p>
-        
-        <h2>Custom Solutions</h2>
-        <p>We understand that each project has unique requirements and challenges. We work closely with our clients to develop custom solutions that address their specific needs and objectives, leveraging our expertise and experience in the renewable energy sector.</p>
-        
-        <h2>Why Choose Us</h2>
-        <p>With our comprehensive range of services and deep expertise in renewable energy, we are your one-stop solution for all your renewable energy needs. Our client-centered approach ensures that we deliver solutions that meet your specific requirements and exceed your expectations.</p>
+        <h2>Our Additional Services:</h2>
       `,
       features: [
-        "Customized renewable energy solutions",
-        "Expert consulting services",
-        "Comprehensive feasibility studies",
-        "Detailed environmental assessments",
-        "Advanced energy modeling",
-        "Specialized training programs",
+        "Feasibility Studies & Site Assessments – Comprehensive analysis to determine project viability.",
+        "Environmental Impact Assessments – Evaluation of potential environmental effects.",
+        "Grid Connection Studies – Analysis of grid integration requirements.",
+        "Energy Yield Assessments – Estimation of energy production potential.",
+        "Due Diligence – Thorough evaluation of project risks and opportunities.",
+        "Training & Capacity Building – Knowledge transfer to client teams.",
+      ],
+      whyChooseUs: [
+        "Specialized Expertise in various aspects of renewable energy.",
+        "Customized Solutions tailored to your specific needs.",
+        "Comprehensive Approach addressing all project aspects.",
+        "Experienced Consultants with industry-specific knowledge.",
+      ],
+      conclusion:
+        "Our additional services complement our core offerings, providing comprehensive support for all aspects of your renewable energy projects.",
+      gallery: ["/placeholder.svg?height=400&width=600", "/placeholder.svg?height=400&width=600"],
+    },
+    "feasibility-studies": {
+      title: "Feasibility Studies",
+      image: "/placeholder.svg?height=600&width=1200",
+      description:
+        "Our comprehensive feasibility studies evaluate the technical, economic, and environmental viability of renewable energy projects.",
+      content: `
+        <h2>Our Expertise in Feasibility Studies:</h2>
+      `,
+      features: [
+        "Technical Feasibility – Assessment of site conditions, resource availability, and technology options.",
+        "Economic Feasibility – Financial modeling, cost-benefit analysis, and ROI projections.",
+        "Environmental Feasibility – Evaluation of potential environmental impacts and mitigation measures.",
+        "Regulatory Compliance – Analysis of permitting requirements and regulatory frameworks.",
+        "Risk Assessment – Identification and evaluation of project risks and mitigation strategies.",
+        "Recommendations – Detailed recommendations for project implementation and optimization.",
+      ],
+      whyChooseUs: [
+        "Experienced Team with expertise in renewable energy project development.",
+        "Comprehensive Analysis covering all aspects of project feasibility.",
+        "Advanced Modeling Tools for accurate resource assessment and financial projections.",
+        "Practical Recommendations based on real-world experience.",
+      ],
+      conclusion:
+        "Our feasibility studies provide a solid foundation for successful renewable energy projects, helping clients make informed decisions and optimize project design.",
+      gallery: [
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
       ],
     },
-  }
+    "grid-integration": {
+      title: "Grid Integration",
+      image: "/placeholder.svg?height=600&width=1200",
+      description:
+        "We provide expert grid integration services to ensure seamless connection of renewable energy systems to the power grid.",
+      content: `
+        <h2>Our Expertise in Grid Integration:</h2>
+      `,
+      features: [
+        "Grid Connection Studies – Analysis of grid capacity, stability, and connection requirements.",
+        "Power Quality Analysis – Assessment and improvement of voltage regulation, harmonics, and flicker.",
+        "Protection System Design – Development of appropriate protection schemes for grid connection.",
+        "Control System Implementation – Advanced control systems for grid compliance and optimization.",
+        "Grid Code Compliance – Ensuring compliance with relevant grid codes and standards.",
+        "Testing and Commissioning – Comprehensive testing of grid connection systems.",
+      ],
+      whyChooseUs: [
+        "Specialized Expertise in grid integration of renewable energy systems.",
+        "Advanced Analysis Tools for detailed grid studies and simulations.",
+        "Practical Experience with various grid connection challenges and solutions.",
+        "Collaborative Approach working with grid operators and regulatory authorities.",
+      ],
+      conclusion:
+        "Our grid integration services ensure reliable and efficient connection of renewable energy systems to the power grid, maximizing energy export and minimizing grid impacts.",
+      gallery: [
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+      ],
+    },
+    "energy-storage": {
+      title: "Energy Storage Solutions",
+      image: "/placeholder.svg?height=600&width=1200",
+      description: "Our energy storage solutions enhance the reliability and efficiency of renewable energy systems.",
+      content: `
+        <h2>Our Expertise in Energy Storage:</h2>
+      `,
+      features: [
+        "Battery Storage Systems – Design and implementation of lithium-ion, flow battery, and other technologies.",
+        "Pumped Hydro Storage – Assessment and development of pumped hydro storage solutions.",
+        "Thermal Energy Storage – Implementation of thermal storage for concentrated solar power and other applications.",
+        "Hybrid System Integration – Integration of storage with renewable energy generation and grid connection.",
+        "Control System Development – Advanced control systems for optimal storage operation.",
+        "Performance Monitoring – Continuous monitoring and optimization of storage system performance.",
+      ],
+      whyChooseUs: [
+        "Comprehensive Knowledge of various energy storage technologies and applications.",
+        "System Integration Expertise ensuring seamless operation with generation and grid systems.",
+        "Optimization Capabilities maximizing storage system value and performance.",
+        "Lifecycle Support from initial design through operation and maintenance.",
+      ],
+      conclusion:
+        "Our energy storage solutions address the intermittency challenges of renewable energy, providing reliable power supply, grid stability, and maximizing the value of renewable energy assets.",
+      gallery: [
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+      ],
+    },
+    "training-programs": {
+      title: "Training Programs",
+      image: "/placeholder.svg?height=600&width=1200",
+      description:
+        "We offer specialized training programs for operators, technicians, and engineers working with renewable energy systems.",
+      content: `
+        <h2>Our Expertise in Training Programs:</h2>
+      `,
+      features: [
+        "System Operation Training – Comprehensive training on the operation of renewable energy systems.",
+        "Maintenance Procedures – Detailed instruction on preventive and corrective maintenance techniques.",
+        "Troubleshooting Techniques – Practical training on identifying and resolving system issues.",
+        "Safety Protocols – Training on safety procedures and best practices for renewable energy systems.",
+        "Performance Optimization – Techniques for maximizing system efficiency and output.",
+        "Documentation and Reporting – Training on proper documentation and reporting procedures.",
+      ],
+      whyChooseUs: [
+        "Experienced Trainers with practical knowledge of renewable energy systems.",
+        "Hands-On Approach combining classroom instruction with practical exercises.",
+        "Customized Programs tailored to specific system types and client needs.",
+        "Comprehensive Materials including manuals, guides, and reference documents.",
+      ],
+      conclusion:
+        "Our training programs build the capacity of client teams to effectively operate and maintain renewable energy systems, ensuring long-term performance and reliability.",
+      gallery: [
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+        "/placeholder.svg?height=400&width=600",
+      ],
+    },
+  };
 
-  return services[slug as keyof typeof services] || null
-}
+  return services[slug as keyof typeof services] || null;
+};
 
 export default function ServicePage({ params }: { params: { slug: string } }) {
-  const service = getService(params.slug)
+  const service = getService(params.slug);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   if (!service) {
     return (
@@ -337,47 +371,164 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </div>
     )
   }
-
-  return (
-    <div className="container px-4 py-12 md:px-6 md:py-16 lg:py-20">
-      <div className="mx-auto max-w-4xl">
-        <Button asChild variant="outline" className="mb-8">
-          <Link href="/services">
+  const handleBackClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    window.location.href = "/services"
+  }
+   // Special layout for "Other Services" page
+   if (service.isMultiService) {
+    return (
+      <div className="container px-4 py-12 md:px-6 md:py-16 lg:py-20">
+        <div className="mx-auto max-w-6xl">
+          <Button variant="outline" className="mb-8" onClick={handleBackClick}>
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Services
-          </Link>
-        </Button>
-
-        <div className="relative mb-8 aspect-video w-full overflow-hidden rounded-lg">
-          <Image src={service.image || "/placeholder.svg"} alt={service.title} fill className="object-cover" priority />
-        </div>
-
-        <h1 className="mb-6 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{service.title}</h1>
-
-        <p className="mb-8 text-xl text-gray-500 dark:text-gray-400">{service.description}</p>
-
-        <div
-          className="prose max-w-none dark:prose-invert prose-headings:font-bold prose-headings:tracking-tighter prose-p:text-gray-500 dark:prose-p:text-gray-400"
-          dangerouslySetInnerHTML={{ __html: service.content }}
-        />
-
-        <div className="mt-12 rounded-lg bg-gray-50 p-6 dark:bg-gray-900">
-          <h2 className="mb-4 text-xl font-bold">Key Features</h2>
-          <ul className="space-y-2">
-            {service.features.map((feature, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <Check className="mt-1 h-5 w-5 flex-shrink-0 text-teal-600 dark:text-teal-400" />
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-12 flex justify-center">
-          <Button asChild className="bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-700">
-            <Link href="/contact">Contact Us for More Information</Link>
           </Button>
+
+          <div className="mb-12 text-center">
+            <h1 className="mb-4 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{service.title}</h1>
+            <p className="mx-auto max-w-3xl text-xl text-gray-500 dark:text-gray-400">{service.description}</p>
+          </div>
+
+          <div className="space-y-16">
+            {service.otherServices.map((otherService, index) => (
+              <div key={otherService.id} className="group">
+                <h2 className="mb-6 text-2xl font-bold tracking-tighter sm:text-3xl">{otherService.title}</h2>
+                <div className={`flex flex-col gap-8 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
+                  <div className="flex-1 space-y-4">
+                    <p className="text-gray-700 dark:text-gray-300">{otherService.description}</p>
+                    <div className="pt-2">
+                      <Button
+                        asChild
+                        className="group-hover:bg-teal-700 bg-teal-600 dark:bg-teal-600 dark:group-hover:bg-teal-700"
+                      >
+                        <Link href={otherService.link}>
+                          Learn More{" "}
+                          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <motion.div
+                      className="overflow-hidden rounded-lg"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                      whileHover={{ scale: 1.03 }}
+                    >
+                      <div className="relative aspect-video w-full">
+                        <Image
+                          src={otherService.image || "/placeholder.svg"}
+                          alt={otherService.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 flex justify-center">
+            <Button asChild className="bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-700">
+              <Link href="/contact">Contact Us for More Information</Link>
+            </Button>
+          </div>
         </div>
       </div>
+    )
+  }
+// Standard layout for all other service pages
+return (
+  <div className="container px-4 py-12 md:px-6 md:py-16 lg:py-20">
+    <div className="mx-auto max-w-4xl">
+      <Button variant="outline" className="mb-8" onClick={handleBackClick}>
+        <ArrowLeft className="mr-2 h-4 w-4" /> Back to Services
+      </Button>
+
+      {/* <div className="relative mb-8 aspect-video w-full overflow-hidden rounded-lg">
+        <Image src={service.image || "/placeholder.svg"} alt={service.title} fill className="object-cover" priority />
+      </div> */}
+
+      <h1 className="mb-6 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{service.title}</h1>
+
+      <p className="mb-8 text-xl text-gray-500 dark:text-gray-400">{service.description}</p>
+
+      <div
+        className="prose max-w-none dark:prose-invert prose-headings:font-bold prose-headings:tracking-tighter prose-p:text-gray-500 dark:prose-p:text-gray-400"
+        dangerouslySetInnerHTML={{ __html: service.content }}
+      />
+
+      <div className="mt-6 space-y-4">
+        {service.features.map((feature, index) => (
+          <div key={index} className="flex items-start gap-3">
+            <div className="mt-1 flex-shrink-0 text-teal-600 dark:text-teal-400">✅</div>
+            <p className="text-gray-700 dark:text-gray-300">{feature}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-8 rounded-lg bg-gray-50 p-6 dark:bg-gray-900">
+        <h2 className="mb-4 text-xl font-bold">Why Choose Us?</h2>
+        <div className="space-y-4">
+          {service.whyChooseUs.map((reason, index) => (
+            <div key={index} className="flex items-start gap-3">
+              <div className="mt-1 flex-shrink-0 text-teal-600 dark:text-teal-400">✔</div>
+              <p className="text-gray-700 dark:text-gray-300">{reason}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-6">
+        <p className="text-gray-700 dark:text-gray-300">{service.conclusion}</p>
+      </div>
+
+      <div className="mt-12 flex justify-center">
+        <Button asChild className="bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-700">
+          <Link href="/contact">Contact Us for More Information</Link>
+        </Button>
+      </div>
+
+      {isClient && service.gallery && service.gallery.length > 0 && (
+        <div className="mt-16">
+          <h2 className="mb-6 text-2xl font-bold tracking-tighter">Gallery</h2>
+          <div
+            className={`grid gap-4 ${
+              service.gallery.length === 1
+                ? "grid-cols-1"
+                : service.gallery.length === 2
+                  ? "grid-cols-1 sm:grid-cols-2"
+                  : service.gallery.length === 3
+                    ? "grid-cols-1 sm:grid-cols-3"
+                    : "grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
+            }`}
+          >
+            {service.gallery.map((image, index) => (
+              <motion.div
+                key={index}
+                className="overflow-hidden rounded-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="relative aspect-square w-full">
+                  <Image
+                    src={image || "/placeholder.svg"}
+                    alt={`${service.title} gallery image ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
-  )
+  </div>
+)
 }
