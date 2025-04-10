@@ -36,7 +36,7 @@ export default function Navbar() {
             alt="Bajrang Renewable Logo"
             width={150}
             height={50}
-            className="h-auto w-auto"
+            className="h-auto w-[200px]"
             priority
           />
         </Link>
