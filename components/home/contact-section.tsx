@@ -17,23 +17,27 @@ export default function ContactSection() {
           <div className="flex flex-col gap-4">
             <div className="flex items-start gap-4">
               <MapPin className="h-6 w-6 text-teal-600 dark:text-teal-400" />
-              <div>
+              <div className="text-left">
                 <h3 className="font-semibold">Address</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">123 Renewable Street, Energy City, 12345</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400"> A24, Shiv Shakti Society,
+                    B/H Garnet Apartment,
+                    Near Sabri School,
+                    Vasna road, Vadodara -390007</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <Phone className="h-6 w-6 text-teal-600 dark:text-teal-400" />
-              <div>
+              <div className="text-left">
                 <h3 className="font-semibold">Phone</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">+1 (123) 456-7890</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">+91-7567648632</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">+91-9773092131</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <Mail className="h-6 w-6 text-teal-600 dark:text-teal-400" />
-              <div>
+              <div className="text-left">
                 <h3 className="font-semibold">Email</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">info@bajrangrenewable.com</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">bajrangrenewable@gmail.com</p>
               </div>
             </div>
           </div>
