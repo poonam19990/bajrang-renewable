@@ -3,15 +3,17 @@ import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-
+import ss from "@/public/substations/substation6.jpeg"
+ import tl from "@/public/TransmissionLine/transmission-line1.jpeg"
+// import other from "@/public/"
 export default function ServicesPage() {
   const services = [
     {
       id: 1,
       title: "Substations",
       description:
-        "We design, build, and maintain electrical substations that efficiently distribute power from renewable energy sources to the grid.",
-      image: "/placeholder.svg?height=400&width=600",
+        "we specialize in EHV (Extra High Voltage) AIS & GIS Substation solutions, delivering precise, reliable, and efficient power infrastructure from 66kV to 220kV and beyond. Our expert team ensures seamless execution from erection to final commissioning, following IS/IEC, GETCO, and CEA standards for high-performance and grid compliance. ",
+      image: ss,
       link: "/services/substations",
     },
     {
@@ -19,7 +21,7 @@ export default function ServicesPage() {
       title: "Cable Laying",
       description:
         "Our expert team provides comprehensive cable laying services for renewable energy projects, ensuring reliable power transmission.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: ss,
       link: "/services/cable-laying",
     },
     {
@@ -35,7 +37,7 @@ export default function ServicesPage() {
       title: "Transmission Line",
       description:
         "Our transmission line services include design, installation, and maintenance of high-voltage power lines for renewable energy projects.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: tl,
       link: "/services/transmission-line",
     },
     {
