@@ -2,113 +2,80 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, Calendar, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import smart from "@/public/blog/smart.jpg"
+import hvdc from "@/public/blog/HVDC.jpeg"
+import sustain from "@/public/blog/sustain-ss.jpg"
+import hybrid from "@/public/blog/hybrid.webp"
 
 // This would typically come from a database or CMS
 const getBlogPost = (slug: string) => {
   const blogPosts = {
     "future-of-renewable-energy": {
-      title: "The Future of Renewable Energy",
+      title: "Smart Substations & Digitalization",
       date: "April 15, 2023",
       author: "John Smith",
-      image: "/placeholder.svg?height=600&width=1200",
+      image: smart,
       content: `
-        <p>The renewable energy sector is experiencing unprecedented growth and innovation. As the world grapples with climate change and the need to reduce carbon emissions, renewable energy sources like solar, wind, and hydroelectric power are becoming increasingly important.</p>
-        
-        <h2>Technological Advancements</h2>
-        <p>Recent technological advancements have significantly improved the efficiency and reduced the cost of renewable energy systems. Solar panels are becoming more efficient and less expensive, making them accessible to more people. Wind turbines are being designed to capture more energy with less environmental impact.</p>
-        
-        <h2>Energy Storage Solutions</h2>
-        <p>One of the biggest challenges in renewable energy has been storage. However, battery technology is rapidly advancing, with new solutions being developed to store energy more efficiently and for longer periods. This is crucial for ensuring a consistent energy supply, even when the sun isn't shining or the wind isn't blowing.</p>
-        
-        <h2>Policy and Investment</h2>
-        <p>Governments around the world are implementing policies to encourage the adoption of renewable energy. Tax incentives, subsidies, and regulations are being used to make renewable energy more attractive to businesses and consumers. Additionally, private investment in renewable energy is at an all-time high, with companies recognizing the long-term benefits of sustainable energy sources.</p>
-        
-        <h2>The Role of Artificial Intelligence</h2>
-        <p>Artificial intelligence (AI) is playing an increasingly important role in optimizing renewable energy systems. AI can predict energy demand, optimize energy distribution, and improve the efficiency of renewable energy systems. This technology is helping to make renewable energy more reliable and cost-effective.</p>
-        
-        <h2>Conclusion</h2>
-        <p>The future of renewable energy is bright. With continued technological advancements, supportive policies, and increased investment, renewable energy is set to become the dominant source of energy in the coming decades. This transition will not only help combat climate change but also create new economic opportunities and improve energy security.</p>
+       Smart substations are at the forefront of the digital transformation in power systems.
+        They incorporate Intelligent Electronic Devices (IEDs), such as smart sensors and digital relays, to monitor and control electrical parameters in real-time.
+         These devices communicate over high-speed, secure digital networks, facilitating centralized control and data analysis through systems like Supervisory Control and Data Acquisition (SCADA).
+        This digitalization leads to enhanced reliability, improved asset management, and reduced operational costs.​
       `,
     },
     "benefits-of-solar-power-for-businesses": {
-      title: "Benefits of Solar Power for Businesses",
+      title: "Hybrid Wind-Solar Substations",
       date: "March 22, 2023",
       author: "Sarah Johnson",
-      image: "/placeholder.svg?height=600&width=1200",
+      image: hybrid,
       content: `
-        <p>Solar power is becoming an increasingly popular choice for businesses looking to reduce their environmental impact and energy costs. This renewable energy source offers numerous benefits that can help businesses of all sizes.</p>
-        
-        <h2>Cost Savings</h2>
-        <p>One of the most significant benefits of solar power for businesses is cost savings. While the initial investment in solar panels can be substantial, the long-term savings on energy bills can be significant. Many businesses see a return on their investment within 5-7 years, and solar panels typically have a lifespan of 25-30 years.</p>
-        
-        <h2>Tax Incentives and Rebates</h2>
-        <p>Many governments offer tax incentives and rebates to businesses that install solar panels. These incentives can significantly reduce the upfront cost of solar installation, making it a more attractive option for businesses.</p>
-        
-        <h2>Environmental Benefits</h2>
-        <p>Solar power is a clean, renewable energy source that produces no greenhouse gas emissions. By switching to solar power, businesses can significantly reduce their carbon footprint and contribute to the fight against climate change.</p>
-        
-        <h2>Energy Independence</h2>
-        <p>Solar power allows businesses to generate their own electricity, reducing their dependence on the grid. This can provide energy security and protect against rising energy costs.</p>
-        
-        <h2>Enhanced Brand Image</h2>
-        <p>Consumers are increasingly concerned about environmental issues and are more likely to support businesses that demonstrate a commitment to sustainability. By investing in solar power, businesses can enhance their brand image and attract environmentally conscious customers.</p>
-        
-        <h2>Conclusion</h2>
-        <p>Solar power offers numerous benefits for businesses, from cost savings to environmental benefits. As technology continues to improve and costs continue to decrease, solar power is becoming an increasingly attractive option for businesses of all sizes.</p>
+      <p>Hybrid substations integrate renewable energy sources, specifically wind and solar power, into the traditional grid infrastructure. </p>
+      <p>By combining gas-insulated and air-insulated switchgear technologies, these substations achieve a compact footprint and increased efficiency. </p>
+      <p>This integration supports the transition to sustainable energy by accommodating the variability of renewable sources and enhancing grid stability.</p>
+      <p>Hybrid substations integrate renewable sources like wind and solar into traditional grid infrastructure. By combining gas-insulated and air-insulated switchgear technologies, they provide a compact design and reduce environmental impact.</p>
+
+🔋<h2> Benefits:</h2>
+
+<p>Reliable 24/7 power supply by balancing wind and solar variability</p>
+
+<p>Reduced land usage and maintenance costs</p>
+
+<p>Enhanced grid stability and resilience</p>
       `,
     },
     "wind-energy-sustainable-alternative": {
-      title: "Wind Energy: A Sustainable Alternative",
+      title: "High Voltage Direct Current (HVDC) Transmission",
       date: "February 10, 2023",
       author: "Michael Brown",
-      image: "/placeholder.svg?height=600&width=1200",
+      image: hvdc,
       content: `
-        <p>Wind energy is one of the fastest-growing renewable energy sources in the world. It offers a sustainable alternative to fossil fuels and plays a crucial role in the transition to a low-carbon economy.</p>
-        
-        <h2>How Wind Energy Works</h2>
-        <p>Wind turbines convert the kinetic energy in wind into mechanical power, which can then be converted into electricity. Wind farms, consisting of multiple turbines, can generate significant amounts of electricity, which is fed into the grid and distributed to homes and businesses.</p>
-        
-        <h2>Environmental Benefits</h2>
-        <p>Wind energy is a clean, renewable energy source that produces no greenhouse gas emissions during operation. It also has a minimal land footprint, as the land between turbines can still be used for agriculture or other purposes.</p>
-        
-        <h2>Economic Benefits</h2>
-        <p>The wind energy industry creates jobs in manufacturing, installation, maintenance, and operations. It also provides a stable source of income for landowners who lease their land for wind farms.</p>
-        
-        <h2>Challenges and Solutions</h2>
-        <p>Wind energy does face some challenges, including intermittency (the wind doesn't always blow) and concerns about impacts on wildlife. However, advances in technology and careful siting of wind farms can help address these issues.</p>
-        
-        <h2>The Future of Wind Energy</h2>
-        <p>The future of wind energy looks promising, with continued growth expected in both onshore and offshore wind. Technological advancements are making wind turbines more efficient and less expensive, while policy support is encouraging further development of this renewable energy source.</p>
-        
-        <h2>Conclusion</h2>
-        <p>Wind energy offers a sustainable alternative to fossil fuels, with significant environmental and economic benefits. As technology continues to improve and costs continue to decrease, wind energy is set to play an increasingly important role in our energy future.</p>
+        HVDC transmission systems are essential for long-distance, high-capacity power transfer. They offer advantages over alternating current (AC) systems, including lower line losses and the ability to connect asynchronous grids. Notable projects like HVDC BorWin1 and HVDC HelWin1 in Germany exemplify the successful integration of offshore wind energy into the mainland grid, utilizing voltage-sourced converters and subsea cables to efficiently transmit power over long distances. 
+        HVDC is transforming the way we transmit energy across long distances. Unlike AC systems, HVDC minimizes line losses and allows asynchronous power systems to connect seamlessly. Projects like BorWin1 in Germany are already linking offshore wind energy to mainland grids efficiently.
+
+🔌 Benefits:
+
+Reduced energy losses over long distances
+
+Lower infrastructure costs
+
+Integration of remote renewable energy resources
       `,
     },
     "role-of-energy-storage": {
-      title: "The Role of Energy Storage in Renewable Systems",
+      title: "Sustainable & Modular Substation Designs",
       date: "January 5, 2023",
       author: "Emily Davis",
-      image: "/placeholder.svg?height=600&width=1200",
+      image: sustain,
       content: `
-        <p>Energy storage plays a crucial role in renewable energy systems, helping to address the intermittency of renewable energy sources like solar and wind. As we transition to a more renewable energy future, the importance of energy storage will only continue to grow.</p>
-        
-        <h2>Why Energy Storage is Important</h2>
-        <p>Renewable energy sources like solar and wind are intermittent - the sun doesn't always shine, and the wind doesn't always blow. Energy storage allows excess energy generated during peak production times to be stored and used when production is low, ensuring a consistent energy supply.</p>
-        
-        <h2>Types of Energy Storage</h2>
-        <p>There are various types of energy storage technologies, each with its own advantages and disadvantages. These include batteries (like lithium-ion, lead-acid, and flow batteries), pumped hydro storage, compressed air energy storage, and thermal energy storage.</p>
-        
-        <h2>Battery Storage</h2>
-        <p>Battery storage is one of the most common forms of energy storage for renewable energy systems. Lithium-ion batteries, in particular, have seen significant advancements in recent years, with improvements in efficiency and reductions in cost.</p>
-        
-        <h2>Grid-Scale Storage</h2>
-        <p>Grid-scale energy storage is becoming increasingly important as more renewable energy is integrated into the grid. Large-scale storage systems can help balance supply and demand, improve grid stability, and reduce the need for fossil fuel backup power.</p>
-        
-        <h2>The Future of Energy Storage</h2>
-        <p>The future of energy storage looks promising, with continued advancements in technology and reductions in cost. New storage technologies are being developed, and existing technologies are being improved, which will help to further integrate renewable energy into our energy systems.</p>
-        
-        <h2>Conclusion</h2>
-        <p>Energy storage is a crucial component of renewable energy systems, helping to address the intermittency of renewable energy sources and ensure a reliable energy supply. As we continue to transition to a more renewable energy future, the role of energy storage will only become more important.</p>
+        Sustainable substation designs prioritize environmental considerations by incorporating renewable energy sources and minimizing ecological impact. Modular substations offer flexibility and scalability, allowing for easier upgrades and adaptability to changing energy demands. This approach contributes to a more resilient and eco-friendly power infrastructure, aligning with global sustainability goals.
+        Sustainability and scalability are at the core of modern substation design. Modular substations are prefabricated and easily deployable, which reduces on-site construction time and environmental disruption.
+
+🌱 Benefits:
+
+Quick installation and deployment
+
+Eco-friendly design using low-impact materials
+
+Easy upgrades and capacity expansion
       `,
     },
     "government-incentives-renewable-energy": {
@@ -202,7 +169,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" priority />
         </div>
 
-        <div className="mb-6 flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+        {/* <div className="mb-6 flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
           <div className="flex items-center gap-1">
             <Calendar className="h-4 w-4" />
             <span>{post.date}</span>
@@ -211,7 +178,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <User className="h-4 w-4" />
             <span>{post.author}</span>
           </div>
-        </div>
+        </div> */}
 
         <h1 className="mb-6 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{post.title}</h1>
 

@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import ss from "@/public/substations/substation6.jpeg"
  import tl from "@/public/TransmissionLine/transmission-line1.jpeg"
+ import cable1 from "@/public/cable-laying/cb-1.jpeg"
+ import epc from "@/public/epc-service/epc4.jpg"
+ import others from "@/public/other-services/getco-feder2.jpg"
+import { truncateWords } from "@/components/truncateWords"
 // import other from "@/public/"
 export default function ServicesPage() {
   const services = [
@@ -21,7 +25,7 @@ export default function ServicesPage() {
       title: "Cable Laying",
       description:
         "Our expert team provides comprehensive cable laying services for renewable energy projects, ensuring reliable power transmission.",
-      image: ss,
+      image: cable1,
       link: "/services/cable-laying",
     },
     {
@@ -45,7 +49,7 @@ export default function ServicesPage() {
       title: "EPC Service",
       description:
         "As a full-service EPC contractor, we handle engineering, procurement, and construction for renewable energy projects of all sizes.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: epc,
       link: "/services/epc-service",
     },
     {
@@ -53,7 +57,7 @@ export default function ServicesPage() {
       title: "Others",
       description:
         "We provide a range of additional services tailored to meet the specific needs of your renewable energy projects.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: others,
       link: "/services/others",
     },
   ]
@@ -83,7 +87,7 @@ export default function ServicesPage() {
               <h2 className="text-xl font-bold">{service.title}</h2>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-500 dark:text-gray-400">{service.description}</p>
+              <p className="text-gray-500 dark:text-gray-400">{truncateWords(service.description)}</p>
             </CardContent>
             <CardFooter>
               <Button asChild variant="outline" className="w-full">

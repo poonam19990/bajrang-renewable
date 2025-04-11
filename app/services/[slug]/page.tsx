@@ -12,7 +12,23 @@ import Img3 from "@/public/substations/substation3.jpg";
 import Img4 from "@/public/substations/substation4.jpg";
 import tra_line1 from "@/public/TransmissionLine/transmission-line2.jpeg";
 import tra_line2 from "@/public/TransmissionLine/transmission-line3.jpeg";
-// import epc1 from "@/public/epc-service/"
+import tra_line3 from "@/public/TransmissionLine/transmission-line5.jpg";
+import tra_line4 from "@/public/TransmissionLine/transmission-line1.jpeg";
+import oil_filter  from "@/public/other-services/oil-filter.jpg"
+import getco_feder from "@/public/other-services/getco-feder.jpg"
+import overhead1 from "@/public/other-services/overhead-line2.jpeg"
+import MVA_1 from "@/public/other-services/50MVA-1.jpg"
+import MVA_2 from "@/public/other-services/50MVA-2.jpg"
+import MVA_3 from "@/public/other-services/50MVA-3.jpg"
+import cable1 from "@/public/cable-laying/cb-2.jpeg"
+import cable2 from "@/public/cable-laying/cb-3.jpeg"
+import cable3 from "@/public/cable-laying/cb-4.jpeg"
+import epc1 from "@/public/epc-service/epc1.jpg"
+import epc2 from "@/public/epc-service/epc2.jpg"
+import epc3 from "@/public/epc-service/epc5.jpg"
+import epc4 from "@/public/epc-service/epc6.jpg"
+import ImageLightbox from "@/components/image-lightbox";
+
 // This would typically come from a database or CMS
 const getService = (slug: string) => {
   const services = {
@@ -67,9 +83,7 @@ const getService = (slug: string) => {
       conclusion:
         "With our extensive experience in cable laying for renewable energy projects, we ensure efficient and reliable power transmission from generation sources to the grid.",
       gallery: [
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
+       cable1,cable2,cable3
       ],
     },
     "operation-maintenance": {
@@ -127,7 +141,7 @@ const getService = (slug: string) => {
       ],
       conclusion:
         "Our transmission line services ensure efficient and reliable power transmission from renewable energy sources to the grid, supporting the growth of clean energy.",
-      gallery: [tra_line1, tra_line2],
+      gallery: [tra_line1, tra_line2,tra_line3,tra_line4],
     },
     "epc-service": {
       title: "EPC Service",
@@ -154,11 +168,7 @@ const getService = (slug: string) => {
       conclusion:
         "Our EPC services provide a seamless and efficient approach to renewable energy projects, from initial concept to final commissioning.",
       gallery: [
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
+        epc1,epc2,epc3,epc4
       ],
     },
     others: {
@@ -169,35 +179,35 @@ const getService = (slug: string) => {
       isMultiService: true,
       otherServices: [
         {
-          id: "feasibility-studies",
-          title: "Feasibility Studies",
+          id: "50MVA TR Oil filtration and BDV, PPM ,DGA Analysis",
+          title: "50MVA TR Oil filtration and BDV, PPM ,DGA Analysis",
           description:
             "Our comprehensive feasibility studies evaluate the technical, economic, and environmental viability of renewable energy projects. We analyze site conditions, resource availability, grid connection options, and financial projections to determine project feasibility and optimize design parameters.",
-          image: "/placeholder.svg?height=400&width=600",
+          image: oil_filter,
           link: "/services/feasibility-studies",
         },
         {
-          id: "grid-integration",
-          title: "Grid Integration",
+          id: " 33kv Overhead Line and HT Yard work for Wind farm",
+          title: " 33kv Overhead Line and HT Yard work for Wind farm",
           description:
             "We provide expert grid integration services to ensure seamless connection of renewable energy systems to the power grid. Our team conducts detailed grid studies, designs appropriate interconnection solutions, and implements advanced control systems to meet grid code requirements and optimize power quality.",
-          image: "/placeholder.svg?height=400&width=600",
+          image: overhead1,
           link: "/services/grid-integration",
         },
         {
-          id: "energy-storage",
-          title: "Energy Storage Solutions",
+          id: "66kv GETCO feeder bay foundation work",
+          title: "66kv GETCO feeder bay foundation work",
           description:
             "Our energy storage solutions enhance the reliability and efficiency of renewable energy systems. We design and implement battery storage systems, pumped hydro storage, and other technologies to store excess energy, provide backup power, and stabilize grid operations.",
-          image: "/placeholder.svg?height=400&width=600",
+          image: getco_feder,
           link: "/services/energy-storage",
         },
         {
-          id: "training-programs",
-          title: "Training Programs",
+          id: "50MVA TR Unloading and Installation",
+          title: "50MVA TR Unloading and Installation",
           description:
             "We offer specialized training programs for operators, technicians, and engineers working with renewable energy systems. Our hands-on training covers system operation, maintenance procedures, troubleshooting techniques, and safety protocols to ensure optimal system performance and longevity.",
-          image: "/placeholder.svg?height=400&width=600",
+          image: MVA_3,
           link: "/services/training-programs",
         },
       ],
@@ -349,12 +359,12 @@ const getService = (slug: string) => {
 };
 
 export default function ServicePage({ params }: { params: { slug: string } }) {
-  const service = getService(params.slug);
-  const [isClient, setIsClient] = useState(false);
+  const service = getService(params.slug)
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    setIsClient(true);
-  }, []);
+    setIsClient(true)
+  }, [])
 
   if (!service) {
     return (
@@ -371,12 +381,14 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </div>
     )
   }
+
   const handleBackClick = (e: React.MouseEvent) => {
     e.preventDefault()
     window.location.href = "/services"
   }
-   // Special layout for "Other Services" page
-   if (service.isMultiService) {
+
+  // Special layout for "Other Services" page
+  if (service.isMultiService) {
     return (
       <div className="container px-4 py-12 md:px-6 md:py-16 lg:py-20">
         <div className="mx-auto max-w-6xl">
@@ -440,95 +452,66 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </div>
     )
   }
-// Standard layout for all other service pages
-return (
-  <div className="container px-4 py-12 md:px-6 md:py-16 lg:py-20">
-    <div className="mx-auto max-w-4xl">
-      <Button variant="outline" className="mb-8" onClick={handleBackClick}>
-        <ArrowLeft className="mr-2 h-4 w-4" /> Back to Services
-      </Button>
 
-      {/* <div className="relative mb-8 aspect-video w-full overflow-hidden rounded-lg">
-        <Image src={service.image || "/placeholder.svg"} alt={service.title} fill className="object-cover" priority />
-      </div> */}
+  // Standard layout for all other service pages
+  return (
+    <div className="container px-4 py-12 md:px-6 md:py-16 lg:py-20">
+      <div className="mx-auto max-w-4xl">
+        <Button variant="outline" className="mb-8" onClick={handleBackClick}>
+          <ArrowLeft className="mr-2 h-4 w-4" /> Back to Services
+        </Button>
 
-      <h1 className="mb-6 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{service.title}</h1>
+        {/* <div className="relative mb-8 aspect-video w-full overflow-hidden rounded-lg">
+          <Image src={service.image || "/placeholder.svg"} alt={service.title} fill className="object-cover" priority />
+        </div> */}
 
-      <p className="mb-8 text-xl text-gray-500 dark:text-gray-400">{service.description}</p>
+        <h1 className="mb-6 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{service.title}</h1>
 
-      <div
-        className="prose max-w-none dark:prose-invert prose-headings:font-bold prose-headings:tracking-tighter prose-p:text-gray-500 dark:prose-p:text-gray-400"
-        dangerouslySetInnerHTML={{ __html: service.content }}
-      />
+        <p className="mb-8 text-xl text-gray-500 dark:text-gray-400">{service.description}</p>
 
-      <div className="mt-6 space-y-4">
-        {service.features.map((feature, index) => (
-          <div key={index} className="flex items-start gap-3">
-            <div className="mt-1 flex-shrink-0 text-teal-600 dark:text-teal-400">✅</div>
-            <p className="text-gray-700 dark:text-gray-300">{feature}</p>
-          </div>
-        ))}
-      </div>
+        <div
+          className="prose max-w-none dark:prose-invert prose-headings:font-bold prose-headings:tracking-tighter prose-p:text-gray-500 dark:prose-p:text-gray-400"
+          dangerouslySetInnerHTML={{ __html: service.content }}
+        />
 
-      <div className="mt-8 rounded-lg bg-gray-50 p-6 dark:bg-gray-900">
-        <h2 className="mb-4 text-xl font-bold">Why Choose Us?</h2>
-        <div className="space-y-4">
-          {service.whyChooseUs.map((reason, index) => (
+        <div className="mt-6 space-y-4">
+          {service.features.map((feature, index) => (
             <div key={index} className="flex items-start gap-3">
-              <div className="mt-1 flex-shrink-0 text-teal-600 dark:text-teal-400">✔</div>
-              <p className="text-gray-700 dark:text-gray-300">{reason}</p>
+              <div className="mt-1 flex-shrink-0 text-teal-600 dark:text-teal-400">✅</div>
+              <p className="text-gray-700 dark:text-gray-300">{feature}</p>
             </div>
           ))}
         </div>
-      </div>
 
-      <div className="mt-6">
-        <p className="text-gray-700 dark:text-gray-300">{service.conclusion}</p>
-      </div>
-
-      <div className="mt-12 flex justify-center">
-        <Button asChild className="bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-700">
-          <Link href="/contact">Contact Us for More Information</Link>
-        </Button>
-      </div>
-
-      {isClient && service.gallery && service.gallery.length > 0 && (
-        <div className="mt-16">
-          <h2 className="mb-6 text-2xl font-bold tracking-tighter">Gallery</h2>
-          <div
-            className={`grid gap-4 ${
-              service.gallery.length === 1
-                ? "grid-cols-1"
-                : service.gallery.length === 2
-                  ? "grid-cols-1 sm:grid-cols-2"
-                  : service.gallery.length === 3
-                    ? "grid-cols-1 sm:grid-cols-3"
-                    : "grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
-            }`}
-          >
-            {service.gallery.map((image, index) => (
-              <motion.div
-                key={index}
-                className="overflow-hidden rounded-lg"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="relative aspect-square w-full">
-                  <Image
-                    src={image || "/placeholder.svg"}
-                    alt={`${service.title} gallery image ${index + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </motion.div>
+        <div className="mt-8 rounded-lg bg-gray-50 p-6 dark:bg-gray-900">
+          <h2 className="mb-4 text-xl font-bold">Why Choose Us?</h2>
+          <div className="space-y-4">
+            {service.whyChooseUs.map((reason, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <div className="mt-1 flex-shrink-0 text-teal-600 dark:text-teal-400">✔</div>
+                <p className="text-gray-700 dark:text-gray-300">{reason}</p>
+              </div>
             ))}
           </div>
         </div>
-      )}
+
+        <div className="mt-6">
+          <p className="text-gray-700 dark:text-gray-300">{service.conclusion}</p>
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <Button asChild className="bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-700">
+            <Link href="/contact">Contact Us for More Information</Link>
+          </Button>
+        </div>
+
+        {isClient && service.gallery && service.gallery.length > 0 && (
+          <div className="mt-16">
+            <h2 className="mb-6 text-2xl font-bold tracking-tighter">Gallery</h2>
+            <ImageLightbox images={service.gallery} alt={service.title} />
+          </div>
+        )}
+      </div>
     </div>
-  </div>
-)
+  )
 }

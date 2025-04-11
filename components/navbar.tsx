@@ -25,16 +25,16 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      className={`sticky top-0 z-50 w-full transition-all duration-300 box-border ${
         isScrolled ? "bg-white shadow-md dark:bg-gray-950" : "bg-white/80 backdrop-blur-sm dark:bg-gray-950/80"
       }`}
     >
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+      <div className="container flex h-12 md:h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-4CZImQMSxx5UIBW8EmyC2xIiQF8JFt.png"
+            src="/logo-t-crp.png"
             alt="Bajrang Renewable Logo"
-            width={150}
+            width={50}
             height={50}
             className="h-auto w-[200px]"
             priority
@@ -46,6 +46,12 @@ export default function Navbar() {
             className="text-sm font-medium text-gray-700 transition-colors hover:text-teal-600 dark:text-gray-200 dark:hover:text-teal-400"
           >
             Home
+          </Link>
+          <Link
+            href="/about"
+            className="text-sm font-medium text-gray-700 transition-colors hover:text-teal-600 dark:text-gray-200 dark:hover:text-teal-400"
+          >
+            About
           </Link>
           <Link
             href="/services"
@@ -80,6 +86,12 @@ export default function Navbar() {
                 className="text-lg font-medium text-gray-700 transition-colors hover:text-teal-600 dark:text-gray-200 dark:hover:text-teal-400"
               >
                 Home
+              </Link>
+              <Link
+                href="/about"
+                className="text-lg font-medium text-gray-700 transition-colors hover:text-teal-600 dark:text-gray-200 dark:hover:text-teal-400"
+              >
+                About
               </Link>
               <Link
                 href="/services"

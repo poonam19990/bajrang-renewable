@@ -3,68 +3,72 @@ import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-
+import smart from "@/public/blog/smart.jpg"
+import hvdc from "@/public/blog/HVDC.jpeg"
+import sustain from "@/public/blog/sustain-ss.jpg"
+import hybrid from "@/public/blog/hybrid.webp"
+import { truncateWords } from "@/components/truncateWords"
 export default function BlogPage() {
   const blogPosts = [
     {
       id: 1,
-      title: "The Future of Renewable Energy",
+      title: "Smart Substations & Digitalization",
       description:
-        "Explore the latest trends and innovations in the renewable energy sector and how they are shaping our sustainable future.",
-      image: "/placeholder.svg?height=400&width=600",
+        "Smart substations are at the forefront of the digital transformation in power systems. They incorporate Intelligent Electronic Devices (IEDs), such as smart sensors and digital relays, to monitor and control electrical parameters in real-time. These devices communicate over high-speed, secure digital networks, facilitating centralized control and data analysis through systems like Supervisory Control and Data Acquisition (SCADA). This digitalization leads to enhanced reliability, improved asset management, and reduced operational costs.​",
+      image: smart,
       date: "April 15, 2023",
       author: "John Smith",
       slug: "future-of-renewable-energy",
     },
     {
       id: 2,
-      title: "Benefits of Solar Power for Businesses",
+      title: "Hybrid Wind-Solar Substations",
       description:
-        "Discover how businesses can benefit from implementing solar power solutions and reduce their carbon footprint.",
-      image: "/placeholder.svg?height=400&width=600",
+        "Hybrid substations integrate renewable energy sources, specifically wind and solar power, into the traditional grid infrastructure. By combining gas-insulated and air-insulated switchgear technologies, these substations achieve a compact footprint and increased efficiency. This integration supports the transition to sustainable energy by accommodating the variability of renewable sources and enhancing grid stability.",
+      image: hybrid,
       date: "March 22, 2023",
       author: "Sarah Johnson",
       slug: "benefits-of-solar-power-for-businesses",
     },
     {
       id: 3,
-      title: "Wind Energy: A Sustainable Alternative",
+      title: "High Voltage Direct Current (HVDC) Transmission",
       description:
-        "Learn about the advantages of wind energy and how it contributes to a more sustainable and cleaner environment.",
-      image: "/placeholder.svg?height=400&width=600",
+        "HVDC transmission systems are essential for long-distance, high-capacity power transfer. They offer advantages over alternating current (AC) systems, including lower line losses and the ability to connect asynchronous grids. Notable projects like HVDC BorWin1 and HVDC HelWin1 in Germany exemplify the successful integration of offshore wind energy into the mainland grid, utilizing voltage-sourced converters and subsea cables to efficiently transmit power over long distances. ​",
+      image: hvdc,
       date: "February 10, 2023",
       author: "Michael Brown",
       slug: "wind-energy-sustainable-alternative",
     },
     {
       id: 4,
-      title: "The Role of Energy Storage in Renewable Systems",
+      title: "Sustainable & Modular Substation Designs",
       description:
-        "Understand the importance of energy storage solutions in maximizing the efficiency of renewable energy systems.",
-      image: "/placeholder.svg?height=400&width=600",
+        "Sustainable substation designs prioritize environmental considerations by incorporating renewable energy sources and minimizing ecological impact. Modular substations offer flexibility and scalability, allowing for easier upgrades and adaptability to changing energy demands. This approach contributes to a more resilient and eco-friendly power infrastructure, aligning with global sustainability goals.",
+      image: sustain,
       date: "January 5, 2023",
       author: "Emily Davis",
       slug: "role-of-energy-storage",
     },
-    {
-      id: 5,
-      title: "Government Incentives for Renewable Energy Projects",
-      description:
-        "An overview of government incentives and policies that support the adoption of renewable energy technologies.",
-      image: "/placeholder.svg?height=400&width=600",
-      date: "December 18, 2022",
-      author: "Robert Wilson",
-      slug: "government-incentives-renewable-energy",
-    },
-    {
-      id: 6,
-      title: "Hydroelectric Power: Harnessing Nature's Energy",
-      description: "Explore how hydroelectric power works and its role in the global renewable energy landscape.",
-      image: "/placeholder.svg?height=400&width=600",
-      date: "November 30, 2022",
-      author: "Jennifer Lee",
-      slug: "hydroelectric-power-natures-energy",
-    },
+    // {
+    //   id: 5,
+    //   title: "Government Incentives for Renewable Energy Projects",
+    //   description:
+    //     "An overview of government incentives and policies that support the adoption of renewable energy technologies.",
+    //   image: "/placeholder.svg?height=400&width=600",
+    //   date: "December 18, 2022",
+    //   author: "Robert Wilson",
+    //   slug: "government-incentives-renewable-energy",
+    // },
+    // {
+    //   id: 6,
+    //   title: "Hydroelectric Power: Harnessing Nature's Energy",
+    //   description: "Explore how hydroelectric power works and its role in the global renewable energy landscape.",
+    //   image: "/placeholder.svg?height=400&width=600",
+    //   date: "November 30, 2022",
+    //   author: "Jennifer Lee",
+    //   slug: "hydroelectric-power-natures-energy",
+    // },
   ]
 
   return (
@@ -91,13 +95,13 @@ export default function BlogPage() {
             <CardHeader>
               <div className="space-y-1">
                 <h2 className="text-xl font-bold">{post.title}</h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                {/* <p className="text-sm text-gray-500 dark:text-gray-400">
                   {post.date} • by {post.author}
-                </p>
+                </p> */}
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-500 dark:text-gray-400">{post.description}</p>
+              <p className="text-gray-500 dark:text-gray-400">{truncateWords(post.description)}</p>
             </CardContent>
             <CardFooter>
               <Button asChild variant="outline" className="w-full">
