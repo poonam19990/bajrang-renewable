@@ -22,7 +22,7 @@ export default function HeroSection() {
         <div className="flex flex-col justify-center space-y-4">
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl lg:text-6xl/none">
-            Welcome to <span className="text-teal-400">BAJARANG RENEWABLE</span> 
+            Welcome to <span className="text-teal-400">BAJRANG RENEWABLE</span> 
             </h1>
             <p className="max-w-[600px] text-gray-200 md:text-xl">
              Pioneering the

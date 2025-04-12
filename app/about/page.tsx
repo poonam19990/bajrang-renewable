@@ -14,7 +14,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="mb-16 grid gap-8 md:grid-cols-2 md:gap-12">
+        {/* <div className="mb-16 grid gap-8 md:grid-cols-2 md:gap-12">
           <div className="relative aspect-video overflow-hidden rounded-lg md:aspect-square">
             <Image
               src="/placeholder.svg?height=600&width=600"
@@ -36,7 +36,7 @@ export default function AboutPage() {
               the renewable energy sector.
             </p>
           </div>
-        </div>
+        </div> */}
 
         <div className="mb-16">
           <h2 className="mb-8 text-center text-2xl font-bold tracking-tighter sm:text-3xl">Our Mission & Vision</h2>
