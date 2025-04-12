@@ -98,14 +98,14 @@ export default function Footer() {
                 <span className="sr-only">Twitter</span>
               </Link> */}
               <Link
-                href="#"
+                href="https://www.instagram.com/bajrangrenewable?igsh=c3h5dmhsZGNlOWg2"
                 className="rounded-full bg-gray-100 p-2 text-gray-500 transition-colors hover:bg-teal-100 hover:text-teal-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-teal-900 dark:hover:text-teal-400"
               >
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </Link>
               <Link
-                href="#"
+                href="https://www.linkedin.com/in/bajrang-renewable-6a59b5343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                 className="rounded-full bg-gray-100 p-2 text-gray-500 transition-colors hover:bg-teal-100 hover:text-teal-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-teal-900 dark:hover:text-teal-400"
               >
                 <Linkedin className="h-5 w-5" />

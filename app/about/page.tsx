@@ -26,7 +26,7 @@ export default function AboutPage() {
           <div className="flex flex-col justify-center space-y-4">
             <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl">Our Story</h2>
             <p className="text-gray-500 dark:text-gray-400">
-              Founded in 2010, Bajrang Renewable emerged from a vision to transform India's energy landscape through
+               Bajrang Renewable emerged from a vision to transform India's energy landscape through
               innovative renewable energy solutions. What began as a small team of passionate engineers has grown into a
               leading provider of comprehensive renewable energy services across the country.
             </p>

@@ -28,7 +28,9 @@ import epc2 from "@/public/epc-service/epc2.jpg"
 import epc3 from "@/public/epc-service/epc5.jpg"
 import epc4 from "@/public/epc-service/epc6.jpg"
 import ImageLightbox from "@/components/image-lightbox";
-
+import op_maintain2 from  "@/public/op-maintain/o&m-2.jpeg";
+import op_maintain3 from "@/public/op-maintain/o&m-3.jpeg";
+import op_maintain4 from "@/public/op-maintain/o&m-4.jpeg";
 // This would typically come from a database or CMS
 const getService = (slug: string) => {
   const services = {
@@ -111,11 +113,7 @@ const getService = (slug: string) => {
       conclusion:
         "Our operation and maintenance services ensure the longevity and optimal performance of your renewable energy assets, maximizing your return on investment.",
       gallery: [
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
-      ],
+      op_maintain2,op_maintain3,op_maintain4],
     },
     "transmission-line": {
       title: "Transmission Line",

@@ -8,6 +8,7 @@ import ss from "@/public/substations/substation6.jpeg"
  import cable1 from "@/public/cable-laying/cb-1.jpeg"
  import epc from "@/public/epc-service/epc4.jpg"
  import others from "@/public/other-services/getco-feder2.jpg"
+ import op_maintain from "@/public/op-maintain/o&m-4.jpeg"
 import { truncateWords } from "@/components/truncateWords"
 // import other from "@/public/"
 export default function ServicesPage() {
@@ -33,7 +34,7 @@ export default function ServicesPage() {
       title: "Operation & Maintenance",
       description:
         "We offer complete operation and maintenance services to ensure your renewable energy systems run at optimal efficiency.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: op_maintain,
       link: "/services/operation-maintenance",
     },
     {

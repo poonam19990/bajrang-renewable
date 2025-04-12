@@ -6,30 +6,30 @@ export default function ReviewsSection() {
   const reviews = [
     {
       id: 1,
-      name: "John Smith",
-      company: "ABC Corporation",
+      name: "Karan Sukhdiya",
+      company: "Polite Powertrac Pvt Ltd",
       image: "/placeholder.svg?height=100&width=100",
       rating: 5,
       review:
-        "Bajrang Renewable has been instrumental in helping us achieve our sustainability goals. Their expertise in renewable energy solutions is unmatched.",
+        "Bajrang Renewable Working with this team has been a game-changer for our renewable energy projects. Their expertise in substation design, installation, and maintenance is unmatched. From the initial planning stages to final commissioning, they delivered with precision, professionalism, and a clear commitment to quality.",
     },
     {
       id: 2,
-      name: "Sarah Johnson",
-      company: "XYZ Industries",
+      name: "Mitesh Modi",
+      company: "Suzlon Energy Ltd.",
       image: "/placeholder.svg?height=100&width=100",
       rating: 5,
       review:
-        "We've been working with Bajrang Renewable for over 3 years now, and they've consistently delivered high-quality services and innovative solutions.",
+        "We partnered with them for a 66kV substation upgrade, and the experience exceeded expectations. Their team brought innovative solutions to site challenges, and the execution was flawless. Highly professional and dependable."
     },
     {
       id: 3,
-      name: "Michael Brown",
-      company: "Green Energy Co.",
+      name: "Himanshu Patel",
+      company: "Shrinathji Electricals",
       image: "/placeholder.svg?height=100&width=100",
       rating: 4,
       review:
-        "Their team's dedication to customer satisfaction and technical expertise makes Bajrang Renewable our go-to partner for all energy-related projects.",
+        "Their team delivered outstanding service from start to finish. The level of professionalism, technical expertise, and attention to detail was truly excellent",
     },
   ]
 
@@ -48,9 +48,9 @@ export default function ReviewsSection() {
               <CardContent className="p-6">
                 <div className="flex flex-col gap-4">
                   <div className="flex items-center gap-4">
-                    <div className="relative h-12 w-12 overflow-hidden rounded-full">
-                      <Image src={review.image || "/placeholder.svg"} alt={review.name} fill className="object-cover" />
-                    </div>
+                      {/* <div className="relative h-12 w-12 overflow-hidden rounded-full">
+                        <Image src={review.image || "/placeholder.svg"} alt={review.name} fill className="object-cover" />
+                      </div> */}
                     <div>
                       <h3 className="font-semibold">{review.name}</h3>
                       <p className="text-sm text-gray-500 dark:text-gray-400">{review.company}</p>
