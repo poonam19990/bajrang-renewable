@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Img1 from "@/public/clients/Adani.jpg";
+import Img1 from "@/public/clients/ANTIQUE-POWER.png";
 import Img2 from "@/public/clients/KP.jpg";
 import Img3 from "@/public/clients/Logo_GETCO_New.png";
 import Img4 from "@/public/clients/POLITE.jpg";
@@ -12,7 +12,7 @@ import Img9 from "@/public/clients/rajesh-power.png";
 export default function ClientsSection() {
   const clients = [
     { name: "Client 1", logo: Img1 },
-    { name: "Client 2", logo: Img2 },
+    // { name: "Client 2", logo: Img2 },
     { name: "Client 3", logo: Img3 },
     { name: "Client 4", logo: Img4 },
     { name: "Client 5", logo: Img5 },
