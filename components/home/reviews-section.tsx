@@ -11,16 +11,16 @@ export default function ReviewsSection() {
       image: "/placeholder.svg?height=100&width=100",
       rating: 5,
       review:
-        "Bajrang Renewable Working with this team has been a game-changer for our renewable energy projects. Their expertise in substation design, installation, and maintenance is unmatched. From the initial planning stages to final commissioning, they delivered with precision, professionalism, and a clear commitment to quality.",
+        "Working with this team has been a game-changer for our renewable energy projects. Their expertise in substation design, installation, and maintenance is unmatched. From the initial planning stages to final commissioning, they delivered with precision, professionalism, and a clear commitment to quality.",
     },
     {
       id: 2,
-      name: "Mitesh Modi",
-      company: "Suzlon Energy Ltd.",
+      name: "Rajesh Vachhani",
+      company: "Antique Power pvt Ltd.",
       image: "/placeholder.svg?height=100&width=100",
       rating: 5,
       review:
-        "We partnered with them for a 66kV substation upgrade, and the experience exceeded expectations. Their team brought innovative solutions to site challenges, and the execution was flawless. Highly professional and dependable."
+        "I had the pleasure of working with Bajrang Renewable Their team brought innovative solutions to site challenges, and the execution was flawless. Highly professional and dependable."
     },
     {
       id: 3,

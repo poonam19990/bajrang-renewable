@@ -29,8 +29,8 @@ export default function ContactSection() {
               <Phone className="h-6 w-6 text-teal-600 dark:text-teal-400" />
               <div className="text-left">
                 <h3 className="font-semibold">Phone</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">+91-7567648632</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">+91-9773092131</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Divyesh Nayakpara  +91-7567648632</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Dipesh Senghani    +91-9773092131</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
