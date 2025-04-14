@@ -7,7 +7,7 @@ export default function ReviewsSection() {
     {
       id: 1,
       name: "Karan Sukhdiya",
-      company: "Polite Powertrac Pvt Ltd",
+      company: "Polite PowerTech Pvt Ltd",
       image: "/placeholder.svg?height=100&width=100",
       rating: 5,
       review:
