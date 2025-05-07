@@ -1,4 +1,5 @@
 "use client";
+
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,30 +12,37 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import axios from "axios";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+
+// Validation Schema
+const schema = Yup.object().shape({
+  name: Yup.string()
+    .matches(/^[A-Za-z\s]+$/, "Only letters are allowed in name")
+    .required("Name is required"),
+  email: Yup.string().email("Invalid email format").required("Email is required"),
+  phone: Yup.string()
+    .matches(/^[0-9]{10}$/, "Phone must be 10 digits")
+    .required("Phone number is required"),
+  company: Yup.string(),
+  topic: Yup.string().required("Topic is required"),
+  message: Yup.string().required("Message is required"),
+});
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    topic: "",
-    message: "",
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
   });
-  const handleChange = (e: any) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value })
-    console.log("op", e.target.value);
-  };
 
-  const handleTopicChange = (value: any) => {
-    setFormData({ ...formData, topic: value });
-  };
-
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
+  const onSubmit = async (data: any) => {
     try {
-      const res = await axios.post("/api/send-email", formData);
+      await axios.post("/api/send-email", data);
       alert("Message sent successfully!");
     } catch (err) {
       console.error(err);
@@ -50,12 +58,13 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="max-w-[700px] text-gray-500 dark:text-gray-400 md:text-xl">
-            Have questions or want to learn more about our services? Get in
-            touch with our team.
+            Have questions or want to learn more about our services? Get in touch with our team.
           </p>
         </div>
       </div>
+
       <div className="mx-auto mt-12 grid max-w-6xl gap-8 lg:grid-cols-2">
+        {/* Left - Contact Info */}
         <div className="flex flex-col gap-6">
           <div className="flex items-start gap-4">
             <MapPin className="h-6 w-6 text-teal-600 dark:text-teal-400" />
@@ -77,65 +86,52 @@ export default function ContactPage() {
             <Mail className="h-6 w-6 text-teal-600 dark:text-teal-400" />
             <div>
               <h3 className="text-lg font-semibold">Email</h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                {" "}
-                bajrangrenewable@gmail.com
-              </p>
+              <p className="text-gray-500 dark:text-gray-400">bajrangrenewable@gmail.com</p>
             </div>
           </div>
         </div>
+
+        {/* Right - Contact Form */}
         <div className="rounded-lg border bg-card p-6 shadow-sm">
-          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="name" className="text-sm font-medium">
-                  Name
+                  Name <span className="text-red-500">*</span>
                 </label>
-                <Input
-                  id="name"
-                  placeholder="Enter your name"
-                  onChange={handleChange}
-                />
+                <Input id="name" {...register("name")} placeholder="Enter your name" />
+                {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
               </div>
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="email" className="text-sm font-medium">
-                  Email
+                  Email <span className="text-red-500">*</span>
                 </label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  onChange={handleChange}
-                />
+                <Input id="email" type="email" {...register("email")} placeholder="Enter your email" />
+                {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
               </div>
             </div>
+
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="phone" className="text-sm font-medium">
-                  Phone No
+                  Phone No <span className="text-red-500">*</span>
                 </label>
-                <Input
-                  id="phone"
-                  placeholder="Enter your phone number"
-                  onChange={handleChange}
-                />
+                <Input id="phone" {...register("phone")} placeholder="Enter your phone number" />
+                {errors.phone && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
               </div>
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="company" className="text-sm font-medium">
                   Company
                 </label>
-                <Input
-                  id="company"
-                  placeholder="Enter your company name"
-                  onChange={handleChange}
-                />
+                <Input id="company" {...register("company")} placeholder="Enter your company name" />
               </div>
             </div>
+
             <div className="flex flex-col gap-1.5">
               <label htmlFor="topic" className="text-sm font-medium">
-                Topic
+                Topic <span className="text-red-500">*</span>
               </label>
-              <Select value={formData.topic} onValueChange={handleTopicChange}>
+              <Select onValueChange={(value) => setValue("topic", value)}>
                 <SelectTrigger id="topic">
                   <SelectValue placeholder="Select a topic" />
                 </SelectTrigger>
@@ -147,18 +143,17 @@ export default function ContactPage() {
                   <SelectItem value="other">Other</SelectItem>
                 </SelectContent>
               </Select>
+              {errors.topic && <p className="text-red-500 text-sm">{errors.topic.message}</p>}
             </div>
+
             <div className="flex flex-col gap-1.5">
               <label htmlFor="message" className="text-sm font-medium">
-                Message
+                Message <span className="text-red-500">*</span>
               </label>
-              <Textarea
-                id="message"
-                placeholder="Enter your message"
-                className="min-h-[150px]"
-                onChange={handleChange}
-              />
+              <Textarea id="message" {...register("message")} placeholder="Enter your message" className="min-h-[150px]" />
+              {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
             </div>
+
             <Button
               type="submit"
               className="mt-2 bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-700"
