@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Img1 from "@/public/clients/ANTIQUE-POWER.png";
-import Img2 from "@/public/clients/KP.jpg";
+import Img2 from "@/public/clients/Waaree-logo.png";
 import Img3 from "@/public/clients/Logo_GETCO_New.png";
 import Img4 from "@/public/clients/POLITE.jpg";
 import Img5 from "@/public/clients/SE.jpg";
@@ -8,11 +8,15 @@ import Img6 from "@/public/clients/Suzlon_655x500.png";
 import Img7 from "@/public/clients/Torrent.jpg";
 import Img8 from "@/public/clients/ompower.png";
 import Img9 from "@/public/clients/rajesh-power.png";
+import Img10 from "@/public/clients/AIA-Big.png";
+import Img11 from "@/public/clients/Ratnmani.jpg";
+import Img12 from "@/public/clients/juniper-logo-new.jpg";
+
 
 export default function ClientsSection() {
   const clients = [
     { name: "Client 1", logo: Img1 },
-    // { name: "Client 2", logo: Img2 },
+   { name: "Client 2", logo: Img2 },
     { name: "Client 3", logo: Img3 },
     { name: "Client 4", logo: Img4 },
     { name: "Client 5", logo: Img5 },
@@ -20,6 +24,9 @@ export default function ClientsSection() {
     { name: "Client 7", logo: Img7 },
     { name: "Client 8", logo: Img8 },
     { name: "Client 9", logo: Img9 },
+    { name: "Client 10", logo: Img10 },
+    { name: "Client 11", logo: Img11 },
+    { name: "Client 12", logo: Img12 },
   ];
 
   return (
